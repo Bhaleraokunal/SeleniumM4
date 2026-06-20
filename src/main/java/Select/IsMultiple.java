@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 
 public class IsMultiple {
 
@@ -21,11 +22,15 @@ public class IsMultiple {
 		driver.get("https://omayo.blogspot.com/");
 		
 		WebElement month = driver.findElement(By.className("dropdown") ) ;
-		
+		try {
 		Select sel = new Select(month) ;
 		
 		sel.selectByIndex(0) ;
 		
 		driver.quit();
+		}
+		catch (UnexpectedTagNameException e) {
+			
+		}
 	}
 }
